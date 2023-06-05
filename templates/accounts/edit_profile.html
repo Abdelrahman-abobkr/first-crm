@@ -1,0 +1,43 @@
+{% extends "main.html" %}
+{% load bootstrap4 %}
+{% block content %}
+
+<style>
+    .pic{
+        margin-left: 35px;
+        max-height: 100%;
+        max-width: 200px;
+        border-radius: 50%;
+    }
+</style>
+{% if messages %}
+    {% for msg in messages %}
+        <div class="alert alert-{{msg.tags}} alert-dismissible fade show" role="alert">
+            {{msg}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+{% endif %}
+<div class="row mx-auto">
+    <div class="col-lg-3">
+        <div class="card card-body">
+            <a href="{% url 'index' %}" class="btn btn-dark">&larr; Back to Pofile</a>
+            <hr>
+            <h3 style='text-align:center'>Account Setting</h3>
+            <hr>
+            <img class='pic' src="{{ request.user.customer.img.url }}">
+        </div>
+    </div><br>
+    <div class="col-lg-9">
+        <div class="card card-body">
+            <form method="POST" enctype='multipart/form-data'>
+                {% csrf_token %}
+                {% bootstrap_form u_form %}
+                {% bootstrap_form c_form %}
+                <input type="submit" value="Save" class='btn btn-success mt-3'>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

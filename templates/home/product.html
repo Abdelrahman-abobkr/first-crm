@@ -1,0 +1,21 @@
+{% extends "main.html" %}
+{% block content %}
+
+<div class="container">
+    <div class="card card-body">
+        <h3 class="text-center">Products</h3>
+    </div>
+    <table class="table">
+        <tr><th>Name</th>
+            <th>Price</th>
+        </tr>
+        {% for product in products %}
+        <tr>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock content %}

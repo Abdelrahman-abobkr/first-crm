@@ -1,0 +1,17 @@
+{% extends "main.html" %}
+{% load bootstrap4 %}
+{% block content %}
+
+<div class="col-lg-8 mx-auto">
+    <form method="POST">
+        {% csrf_token %}
+        {{formset.management_form}}
+        {% for form in formset %}
+        {% bootstrap_form form %}
+        {% endfor %}
+        <input type="submit" value="Place" class='btn btn-outline-success mt-3'>
+        <a href="/" class='btn btn-outline-danger mt-3'>Back</a>
+    </form>
+</div>
+
+{% endblock content %}

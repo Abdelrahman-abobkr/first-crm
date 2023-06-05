@@ -1,0 +1,26 @@
+{% extends "main.html" %}
+{% load bootstrap4 %}
+{% load static %}
+
+{% block content %}
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-9 mx-auto">
+				<h1>Login</h1>
+				<hr>
+				<br>
+				<form class="form-group" method='POST'>
+					{% csrf_token %}
+					<p>Note: You Can Login With <b> Email </b> Or <b>Username</b></p>
+					{% bootstrap_form form %}
+					<input type="submit" value="Login" class='btn btn-success mt-3 mb-3'><br>
+					<a style="text-decoration:none; color:black;" href="/accounts/password_reset/">Forgot Password?</a>
+					<p class="mt-2">Don’t have an account? <a style="text-decoration:none; color:black" href="/accounts/register/">Sign Up</a></p>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+{% endblock content %}
