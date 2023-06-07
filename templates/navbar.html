@@ -2,6 +2,7 @@
 
 <style>
     .c_photo{
+        margin-top: 3px;
         height: 35px;
         width: 35px;
         border-radius: 50%;
@@ -41,13 +42,11 @@
             <a href="/accounts/logout/" class="nav-link" aria-current='page'>Logout</a>
         </div>
         {% else %}
-        <div class="dropdown">
-            <button class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <div class="navbar-nav mb-lg-0 ms-3">
+            <ul class="navbar-nav me-auto mb-lg-0">
+                <li class='ms-2'><a href="/accounts/profile/edit_profile/" class="nav-link" aria-current='page'>profile</a></li>
+                <li class='ms-2'><a href="/accounts/logout/" class="nav-link" aria-current='page'>Logout</a></li>
                 <img src="{{request.user.customer.img.url}}" class='c_photo' alt="">
-            </button>
-            <ul class="dropdown-menu" style="right: 0; left: auto;">
-                <li class='ms-2'><a href="/accounts/profile/edit_profile/" class="dropdown-item">profile</a></li>
-                <li class='ms-2'><a href="/accounts/logout/" class="dropdown-item">Logout</a></li>
             </ul>
         </div>
         {% endif %}
