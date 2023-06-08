@@ -11,7 +11,6 @@ from .decorators import *
 
 
 
-@User_Authenticated
 def register(request):
     form = UserForm()
     if request.method == 'POST':
