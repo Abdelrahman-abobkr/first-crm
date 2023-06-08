@@ -1,5 +1,8 @@
 {% extends 'main.html' %}
 
+{% load i18n %}
+{% block head_title %}{% trans 'Home' %}{% endblock head_title %}
+
 {% block content %}
 
 {% include 'home/status.html' %}
@@ -21,14 +24,14 @@
                     <td>{{customer.user}}</td>
                     <td>{{customer.phone}}</td>
                     <td>{{customer.age}}</td>
-                    <td class="p-2"><a href="{% url 'customer' customer.slug %}"><i class="fas solid fa-eye"></i></a></td>
+                    <td class="p-2"><a href="{% url 'customer' customer.slug %}" class='btn btn-outline-info'>View</a></td>
                 </tr>
                 {% endfor %}
             </table>
         </div>
     </div>
     <div class="col-md-7">
-        <h5>Orders</h5>
+        <h5>Orders:</h5>
         <hr>
         <div class="card card-body">
             <table class="table table-sm">

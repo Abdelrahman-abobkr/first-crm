@@ -58,7 +58,7 @@ def edit_profile(request):
         if customer_form and user_form.is_valid():
             customer_form.save()
             user_form.save()
-            messages.info(request, 'Profile Updated')
+            messages.info(request, 'Profile Is Updated')
             return redirect('edit_profile')
     return render(request, 'accounts/edit_profile.html', {'c_form':customer_form, 'u_form': user_form, 'customer':customer})
 
